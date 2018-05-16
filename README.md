@@ -1,13 +1,13 @@
 # quickenv
 
-Quick common node.js build workflow related environment data
+Quick common build workflow related environment data
 
 ```js
 const {
   /** Current working directory */
   CWD,
   /** Quick helper for resolving paths from the cwd */
-  fromCwd: (...paths) => resolve(cwd, ...paths),
+  fromCwd: (...paths) => resolve(CWD, ...paths),
   /** cwd's package.json */
   PKG,
   /** Production environment boolean */
