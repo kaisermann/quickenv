@@ -1,6 +1,6 @@
 # quickenv
 
-Quick common node related environment variables/data
+Quick common node.js build workflow related environment data
 
 ```js
 const {
