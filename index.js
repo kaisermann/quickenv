@@ -1,23 +1,24 @@
 const { resolve } = require('path')
-const { existsSync } = require('fs')
+const { existsSync, readFileSync } = require('fs')
 
 /** Defaults process.env.NODE_ENV to 'development */
 const NODE_ENV = (process.env.NODE_ENV = process.env.NODE_ENV || 'development')
+const CWD = process.cwd()
 
-const cwd = process.cwd()
-
-let pkg = resolve(cwd, 'package.json')
-pkg = existsSync(pkg) ? require(pkg) : null
+let PKG = resolve(CWD, 'package.json')
+PKG = existsSync(PKG) ? JSON.parse(readFileSync(PKG)) : null
 
 module.exports = {
-  CWD: cwd,
-  fromCwd: (...paths) => resolve(cwd, ...paths),
-  PKG: pkg,
+  CWD,
+  fromCwd: (...paths) => resolve(CWD, ...paths),
+  PKG,
   IS_PROD: NODE_ENV === 'production',
   IS_TEST: NODE_ENV === 'test',
   IS_DEV: NODE_ENV === 'development',
-  IS_WATCHING:
-    require.main.filename.includes('webpack-dev-server') ||
-    require.main.filename.includes('webpack-serve') ||
-    process.env.ROLLUP_WATCH
+  IS_WATCHING: !!(
+    /** Catches rollup */
+    process.env.ROLLUP_WATCH ||
+    /** Catches webpack-dev-server and webpack-serve */
+    require.main.filename.match(/webpack(-dev)?-server?/)
+  )
 }
