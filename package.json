@@ -1,0 +1,25 @@
+{
+  "name": "quickenv",
+  "version": "0.0.1",
+  "description": "Quick common node related environment variables/data",
+  "main": "index.js",
+  "repository": "https://github.com/kaisermann/quickenv",
+  "author": "Christian Kaisermann <christian@kaisermann.me>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint *.js",
+    "format": "prettier --loglevel silent --write *.js && eslint --fix *.js",
+    "prepublishOnly": "npm run lint"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "jest": "^22.4.3",
+    "prettier": "^1.12.1"
+  }
+}
