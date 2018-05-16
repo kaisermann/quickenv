@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "Quick common node related environment variables/data",
   "main": "index.js",
+  "files": ["index.js"],
   "repository": "https://github.com/kaisermann/quickenv",
   "author": "Christian Kaisermann <christian@kaisermann.me>",
   "license": "MIT",
