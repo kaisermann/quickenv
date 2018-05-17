@@ -7,17 +7,17 @@ const {
   /** Current working directory */
   CWD,
   /** Quick helper for resolving paths from the cwd */
-  fromCwd: (...paths) => resolve(CWD, ...paths),
-  /** cwd's package.json */
-  PKG,
-  /** Production environment boolean */
-  IS_PROD,
-  /** Test environment boolean */
-  IS_TEST,
-  /** Development environment boolean */
-  IS_DEV,
-  /** Watching boolean for common build tools */
-  IS_WATCHING
+  fromCwd(...paths),
+  /** Get a package.json content (defaults to cwd) */
+  getPkg(directoryPath),
+  /** Check for a production environment */
+  IS_PROD(),
+  /** Check for a test environment */
+  IS_TEST(),
+  /** Check for a development environment */
+  IS_DEV(),
+  /** Check for a watch flag Watching for common build tools */
+  IS_WATCHING()
 } = require('quickenv')
 
 ```

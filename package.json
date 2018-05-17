@@ -1,6 +1,6 @@
 {
   "name": "quickenv",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Quick common node.js build workflow related environment data",
   "main": "index.js",
   "files": ["index.js"],
