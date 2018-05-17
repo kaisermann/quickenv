@@ -3,14 +3,23 @@ const { existsSync, readFileSync } = require('fs')
 
 /** Defaults process.env.NODE_ENV to 'development */
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
 const CWD = process.cwd()
+const PKGS_CACHE = new Map()
 
 module.exports = {
   CWD,
   fromCwd: (...paths) => resolve(CWD, ...paths),
-  getPkg: (dir = CWD) => {
-    let PKG = resolve(dir, 'package.json')
-    return existsSync(PKG) ? JSON.parse(readFileSync(PKG)) : null
+  getPkg: ({ path = CWD, force = false } = {}) => {
+    if (!PKGS_CACHE.has(path) || force) {
+      const pkgPath = resolve(path, 'package.json')
+      if (!existsSync(pkgPath)) {
+        return null
+      }
+      const pkgData = JSON.parse(readFileSync(pkgPath))
+      PKGS_CACHE.set(path, pkgData)
+    }
+    return PKGS_CACHE.get(path)
   },
   IS_PROD: () => process.env.NODE_ENV === 'production',
   IS_TEST: () =>

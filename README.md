@@ -10,8 +10,8 @@ const {
   CWD,
   /** Quick helper for resolving paths from the cwd */
   fromCwd(...paths),
-  /** Get a package.json content (defaults to cwd) */
-  getPkg(directoryPath),
+  /** Get a path's package.json content (defaults to cwd). force:true overwrites the cache */
+  getPkg({path, force}),
   /** Check for a production environment */
   IS_PROD(),
   /** Check for a test environment */
