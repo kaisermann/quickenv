@@ -1,5 +1,7 @@
 # quickenv
 
+> Does this even make sense? ¯\\_(ツ)_/¯
+
 Quick common build workflow related environment data
 
 ```js
