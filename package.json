@@ -1,6 +1,6 @@
 {
   "name": "quickenv",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Quick common node.js build workflow related environment data",
   "main": "index.js",
   "files": [
@@ -30,5 +30,8 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.1.0",
     "prettier": "^1.12.1"
+  },
+  "dependencies": {
+    "find-up": "^3.0.0"
   }
 }
